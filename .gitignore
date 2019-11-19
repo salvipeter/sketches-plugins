@@ -7,3 +7,4 @@ moc_*
 *.so
 Makefile
 .qmake*
+**/*.user

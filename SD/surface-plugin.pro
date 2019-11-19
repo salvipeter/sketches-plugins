@@ -1,14 +1,22 @@
+# -*- mode: Makefile -*-
+
 TEMPLATE = lib
 CONFIG += c++14 plugin
 QT += widgets
 TARGET = surface-plugin
 INCLUDEPATH += .
 
-INCLUDEPATH += /home/salvi/project/sketches/engine/src/Plugins
+unix:SKETCHES = /home/salvi/project/sketches
+win32:SKETCHES = ../../sketches-repository
 
-TRANSFINITE = /home/salvi/project/transfinite
+unix:TRANSFINITE = /home/salvi/project/transfinite
+win32:TRANSFINITE = ../../transfinite
+
+INCLUDEPATH += $${SKETCHES}/engine/src/Plugins
 INCLUDEPATH += $${TRANSFINITE}/src/geom $${TRANSFINITE}/src/transfinite
-LIBS += -L$${TRANSFINITE}/release/geom -L$${TRANSFINITE}/release/transfinite -ltransfinite -lgeom
+
+unix:LIBS += -L$${TRANSFINITE}/release/geom -L$${TRANSFINITE}/release/transfinite -ltransfinite -lgeom
+win32:LIBS += -L$${TRANSFINITE}/src/geom/Release -L$${TRANSFINITE}/src/Release -ltransfinite-free -lgeom
 
 HEADERS += surface-plugin.hh
 SOURCES += surface-plugin.cc
