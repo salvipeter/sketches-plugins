@@ -1,0 +1,9 @@
+*~
+HS/*
+IP/*
+starter-pack/*
+moc_*
+*.o
+*.so
+Makefile
+.qmake*
