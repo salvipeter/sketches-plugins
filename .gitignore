@@ -8,3 +8,4 @@ moc_*
 Makefile
 .qmake*
 **/*.user
+NB/InterpolatingBspline
