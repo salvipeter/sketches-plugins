@@ -80,38 +80,5 @@ PMesh NSidedBSplineSurface::eval(int resolution) const {
                    return { v.x, v.y, v.z };
                  });
   auto triangles = triangulate(curves_.size(), resolution);
-
-  // Debug outputs
-  std::ofstream crv("/tmp/test.crv");
-  for (const auto &c : curves_) {
-    crv << "Curve starts"<< std::endl;
-    crv << "Degree: " << c.form.degree << std::endl;
-    crv << "#CPTS: " << c.form.n << std::endl;
-    for (auto const &k : c.form.knots)
-      crv << k << ' ';
-    crv << std::endl;
-    for (auto const &p : c.controlPoints)
-      crv << p.x << ' ' << p.y << ' ' << p.z << std::endl;
-  }
-  crv.close();
-  std::ofstream dom("/tmp/test.dom");
-  for (const auto &p : s.points)
-    dom << p.x << ' ' << p.y << std::endl;
-  dom.close();
-  std::ofstream bsp("/tmp/test.bsp");
-  for (const auto &pv : s.surface.controlPoints)
-    for (const auto &p : pv)
-      bsp << p.x << ' ' << p.y << ' ' << p.z << std::endl;
-  bsp.close();
-  std::ofstream par("/tmp/test.par");
-  for (const auto &p : params)
-    par << p.x << ' ' << p.y << std::endl;
-  par.close();
-  std::ofstream f("/tmp/test.obj");
-  for (const auto &p : vertices)
-    f << "v " << p[0] << ' ' << p[1] << ' ' << p[2] << std::endl;
-  for (const auto &t : triangles)
-    f << "f " << t.i_[0] + 1 << ' ' << t.i_[1] + 1 << ' ' << t.i_[2] + 1 << std::endl;
-  f.close();
   return { vertices, triangles };
 }
