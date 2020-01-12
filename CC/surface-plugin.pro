@@ -1,7 +1,7 @@
 # -*- mode: Makefile -*-
 
 TEMPLATE = lib
-CONFIG += c++14 plugin
+CONFIG += c++17 plugin
 QT += widgets
 TARGET = surface-plugin
 INCLUDEPATH += .

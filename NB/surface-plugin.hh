@@ -22,6 +22,7 @@ public:
   virtual QString getSurfaceName() const override { return "Interpolating BSpline"; }
   virtual QString getSurfaceShortName() const override { return "NB"; }
   virtual void setCurves(const std::vector<PCurve*>& curves) override;
+  virtual std::vector<double> getData() const override;
   virtual void setData(const std::vector<double> &data) override;
   virtual void setupLoop() override { }                                         // not important
   virtual void update() override { }                                            // not important

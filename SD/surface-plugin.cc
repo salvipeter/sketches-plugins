@@ -69,6 +69,10 @@ void SurfacePlugin::setCurves(const std::vector<PCurve*>& pcurves)
   surf->setVertexControlPoint((sum_ecp * 2 - sum_fcp) / n);
 }
 
+std::vector<double> SurfacePlugin::getData() const {
+  return { reinterpret_cast<SURFACE_NAME*>(impl_)->fullness() };
+}
+
 void SurfacePlugin::setData(const std::vector<double> &data)
 {
   if (data.size() == 1 && data[0] >= 0 && data[0] <= 1)

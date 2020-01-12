@@ -52,6 +52,16 @@ void SurfacePlugin::setCurves(const std::vector<PCurve*>& pcurves) {
   }
 }
 
+std::vector<double> SurfacePlugin::getData() const
+{
+  std::vector<double> data;
+  Surface* surf = (Surface*)impl_;
+  size_t n = surf->domain()->vertices().size();
+  for (size_t i = 0; i < n; ++i)
+    data.push_back(surf->ribbonMultiplier(i));
+  return data;
+}
+
 void SurfacePlugin::setData(const std::vector<double> &data) {
   Surface* surf = (Surface*)impl_;
   size_t n = surf->domain()->vertices().size();

@@ -13,6 +13,10 @@ void NSidedBSplineSurface::setCurves(const std::vector<PCurve*>& curves) {
   }
 }
 
+std::vector<double> NSidedBSplineSurface::getData() const {
+  return { };
+}
+
 void NSidedBSplineSurface::setData(const std::vector<double> &) {
   // not used
 }

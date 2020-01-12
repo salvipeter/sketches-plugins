@@ -62,6 +62,11 @@ void SurfacePlugin::setCurves(const std::vector<PCurve*>& pcurves)
 	}
 }
 
+std::vector<double> SurfacePlugin::getData() const
+{
+  return { };
+}
+
 void SurfacePlugin::setData(const std::vector<double> &)
 {
 }
